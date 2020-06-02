@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Mystery Quest";
+    src: url("Roboto-Regular.ttf");
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0 !important;
+    margin-bottom: 10px;
+}

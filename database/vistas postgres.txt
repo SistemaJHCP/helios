@@ -1,0 +1,101 @@
+CREATE VIEW vw_permiso_operador AS 
+
+select users.id as id, users.name as name, users.lastname as lastname, permisos.nombre_permisos as nombre_permisos from users inner join permisos on permisos.id = users.permisos_id where users.estado = "activo" and permisos.operador = "1";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW vw_permiso_operador AS 
+
+select `users`.`id` as `id`, `users`.`name` as `name`, `users`.`lastname` as `lastname`, `permisos`.`nombre_permisos` as `nombre_permisos` from `users` inner join `permisos` on `permisos`.`id` = `users`.`permisos_id` where `users`.`estado` = "activo" and `permisos`.`operador` = "1";
+
+
+
+CREATE VIEW vw_permiso_coordinador AS 
+
+select `users`.`id` as `id`, `users`.`name` as `name`, `users`.`lastname` as `lastname`, `permisos`.`nombre_permisos` as `nombre_permisos`,`permisos`.`coord_asignacion` as `acceso_coord` from `users` inner join `permisos` on `permisos`.`id` = `users`.`permisos_id` where `users`.`estado` = "activo" and `permisos`.`coordinador` = "1";
+
+
+CREATE VIEW vw_permiso_lider AS 
+
+select `users`.`id` as `id`, `users`.`name` as `name`, `users`.`lastname` as `lastname`, `permisos`.`nombre_permisos` as `nombre_permisos` from `users` inner join `permisos` on `permisos`.`id` = `users`.`permisos_id` where `users`.`estado` = "activo" and `permisos`.`cuadrilla` = "1" AND `permisos`.`cua_create` = "1";
+
+
+CREATE OR REPLACE VIEW vw_asignacion_index AS SELECT id, correctivo, sintoma, disponibilidad FROM caso WHERE disponibilidad = 'disponible' ORDER BY id DESC LIMIT 10
+
+CREATE OR REPLACE VIEW vw_levantamiento_index AS
+
+SELECT 
+`caso`.`id` AS `id_caso`,
+`caso`.`correctivo` AS `correctivo`,
+`caso`.`orden` AS `orden`,
+`caso`.`fecha` AS `fecha`,
+`caso`.`sintoma` AS `sintoma`,
+`caso`.`prioridad` AS `prioridad`,
+`caso`.`siniestro` AS `siniestro`,
+`caso`.`motivo` AS `motivo`,
+`caso`.`descripcion` AS `descripcion`,
+`caso`.`usuario` AS `usuario`,
+`caso`.`telefono` AS `telefono`,
+`caso`.`u_tecnica` AS `u_tecnica`,
+`caso`.`inmueble` AS `inmueble`,
+`caso`.`planta` AS `planta`,
+`caso`.`oficina` AS `oficina`,
+`caso`.`ceco` AS `ceco`,
+`caso`.`emplazamiento` AS `emplazamiento`,
+`caso`.`coordinador_bbva` AS `coordinador_bbva`,
+`caso`.`coordinador_jhcp_id` AS `coordinador_jhcp_id`,
+`caso`.`operador_creador_id` AS `operador_creador_id`,
+`caso`.`disponibilidad`  AS `disponibilidad`,
+`users`.`id` AS `id_users`,
+`users`.`name` AS `name`,
+`users`.`lastname` AS `lastname`,
+`users`.`email` AS `email`,
+`users`.`estado` AS `estado`,
+`asignacion`.`lider_usuario_id` AS `lider_usuario_id`
+FROM `caso`
+INNER JOIN `asignacion` ON `caso`.`id` = `asignacion`.caso_id 
+INNER JOIN `users` ON `users`.id = `asignacion`.`lider_usuario_id`
+ORDER BY `id_caso` DESC
+
+
+CREATE OR REPLACE VIEW vw_mini_levantamiento_index AS
+
+SELECT 
+
+caso.id AS id,
+caso.correctivo AS correctivo, 
+caso.sintoma AS sintoma, 
+caso.disponibilidad AS disponibilidad,
+asignacion.lider_usuario_id AS lider_usuario_id
+
+FROM caso
+
+INNER JOIN asignacion ON caso.id = asignacion.caso_id
+
+ORDER BY id DESC
+
+
+#permisos
+INSERT INTO `permisos` (`id`, `nombre_permisos`, `operador`, `ope_create`, `ope_read`, `ope_update`, `ope_delete`, `ope_print`, `ope_close`, `coordinador`, `coord_asignacion`, `coord_selection`, `coord_consult`, `coord_update`, `coord_send`, `coord_print`, `cuadrilla`, `cua_print`, `cua_create`, `cua_read`, `cua_update`, `cua_delete`, `cua_finish`, `configuracion`, `conf_create`, `conf_modify`, `conf_show`, `conf_rehability`, `conf_deshability`, `conf_access_pre`, `conf_charge_pre`, `conf_modify_pre`, `conf_del_pre`, `conf_hab_pol`, `conf_con_pol`, `conf_mod_pol`, `conf_masterk`, `estado`) VALUES (NULL, 'administrador', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'activo');
+
+#usuario admin
+INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `estado`, `permisos_id`) VALUES (NULL, 'administrador', 'admin', 'admin', NULL, '$2y$10$SBPZCVqnzRiW3TTxs2tz.uhwNTJRaJHqfmZtNq5EU5a5Q523MTOaS', NULL, NULL, NULL, 'activo', '1');

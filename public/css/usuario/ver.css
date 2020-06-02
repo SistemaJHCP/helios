@@ -1,0 +1,28 @@
+#circle {
+    border: 8px solid #3c8dbc;
+    /* border-radius: 100%; */
+    background: #e1eff7;
+    display: inline-block;
+    /* position: relative; */
+    width: 320px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#circle  img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+  }
+
+.linea {
+    background: #e1eff7;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.titulo {
+    font-size: 18px;
+    text-align: center;
+}
