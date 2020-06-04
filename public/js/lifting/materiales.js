@@ -28,9 +28,9 @@ $(document).ready( function(){
             $.ajax({
                 url: ruta_txt,
                 data:{'nombre': $("#nombre_p").val(), 'metrica': $("#metrica").val(), 'precio_p': $("#precio_p").val(),'levantamiento': $("#levantamiento").val()},
-                type: "get",
+                type: "post",
                 dataType: "json",
-                header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
             })
             .done(function(comp) {
                 console.log(comp);
@@ -40,7 +40,7 @@ $(document).ready( function(){
                 $('#precio_p').val("");
             })
             .fail( function(){
-                console.log("fallo el ajax");
+                console.log("fallo el ajax 465");
             });
 
     });
