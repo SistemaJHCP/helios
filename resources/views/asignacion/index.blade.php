@@ -15,7 +15,13 @@
 
 @section('body')
 <div class="row">
+<?php
 
+    if(isset($_GET['msj'])) {
+        Alert::success('Se ha cargado el monto en el sistema.');
+    }
+
+?>
     <div class="col-lg-7">
 
         <div class="box box-info" style="margin-left: 14px">

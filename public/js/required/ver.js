@@ -35,7 +35,7 @@ $(document).ready( function(){
             .done(function(comp) {
                 if (comp == true) {
                     $('button').attr("disabled", true);
-                    document.location.href = 'http://192.168.1.150/helios/public/asignacion';
+                    document.location.href = 'http://192.168.1.150/helios/public/asignacion?msj=joss';
                 } else {
                     alert("Algo esta fallando");
                 }
