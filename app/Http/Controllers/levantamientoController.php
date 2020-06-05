@@ -26,12 +26,14 @@ class levantamientoController extends Controller
     public function usuarioppal(){
         $usuarioPrincipal = User::select()->join('permisos', 'users.permisos_id', '=', 'permisos.id')->where('users.id', \Auth::user()->id)->where('permisos.estado', 'activo')->first();
         return $usuarioPrincipal;
+
     }
 
     public function index()
     {
 
         $u  = $this->usuarioppal();
+
         if ($u->cuadrilla != 1) {
             Alert::warning('Usted no tiene permisos', 'para realizar esta acción.');
             return redirect()->route('home');
@@ -402,8 +404,14 @@ class levantamientoController extends Controller
 
     public function ejecucion()
     {
-        $query = DB::table('vw_mini_levantamiento_index')->where('lider_usuario_id', \Auth::user()->id)
-        ->where('disponibilidad','ejecutando');
+        $u  = $this->usuarioppal();
+
+        if($u->operador == 1){
+            $query = DB::table('vw_mini_levantamiento_index')->where('disponibilidad','ejecutando');
+        } else {
+            $query = DB::table('vw_mini_levantamiento_index')->where('lider_usuario_id', \Auth::user()->id)->where('disponibilidad','ejecutando');
+        }
+
 
         return datatables()->of($query)
         ->addColumn('btn','levantamiento.btnIndex')

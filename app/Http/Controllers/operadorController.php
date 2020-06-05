@@ -30,7 +30,6 @@ class operadorController extends Controller
 
     public function index()
     {
-
         $u  = $this->usuarioppal();
         if ($u->operador != 1) {
             Alert::warning('Usted no tiene permisos', 'para realizar esta acción.');
@@ -42,8 +41,9 @@ class operadorController extends Controller
         $coord = DB::table('vw_permiso_coordinador')->where('acceso_coord','1')->get();
         $espera = Operador::where('disponibilidad', 'en espera del cliente')->count();
         $crd = Operador::where('disponibilidad', 'cerrado por coord')->count();
+        $cancel = Operador::where('disponibilidad', 'cancelado')->count();
 
-        return view('operador.index')->with('coord',$coord)->with('operador',$operador)->with("espera",$espera)->with('crd',$crd);
+        return view('operador.index')->with('coord',$coord)->with('cancel', $cancel)->with('operador',$operador)->with("espera",$espera)->with('crd',$crd);
     }
 
     /**
