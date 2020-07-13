@@ -98,7 +98,7 @@ $(document).ready( function(){
 
     $("#enviar").on('click', function(){
 
-        var ruta_txt = "http://192.168.1.150/helios/public/requerimiento/jq/modificar-precio";
+        var ruta_txt = "../../requerimiento/jq/modificar-precio";
             $.ajax({
                 url: ruta_txt,
                 data:{'nombre': $("#nombre_p").val(), 'metrica': $("#metrica").val(), 'precio_p': $("#precio_p").val(),'levantamiento': $("#levantamiento").val()},
@@ -115,7 +115,7 @@ $(document).ready( function(){
 
             })
             .fail( function(){
-                console.log("fallo el ajax");
+                console.log("fallo el ajax en envio");
 
             });
 

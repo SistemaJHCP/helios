@@ -24,7 +24,7 @@ $(document).ready( function(){
 
     $("#enviar").on('click', function(){
 
-        var ruta_txt = "http://192.168.1.150/helios/public/requerimiento/jq/modificar-precio";
+        var ruta_txt = "../../requerimiento/jq/modificar-precio";
             $.ajax({
                 url: ruta_txt,
                 data:{'nombre': $("#nombre_p").val(), 'metrica': $("#metrica").val(), 'precio_p': $("#precio_p").val(),'levantamiento': $("#levantamiento").val()},
@@ -33,7 +33,7 @@ $(document).ready( function(){
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
             })
             .done(function(comp) {
-                console.log(comp);
+
                 $('#example').DataTable().ajax.reload();
                 $('#nombre_p').val("");
                 $('#metrica').val("");
@@ -49,10 +49,11 @@ $(document).ready( function(){
 
         $.ajax({
             header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "http://192.168.1.150/helios/public/requerimiento/jq/cargar-request",
+            url: "../../requerimiento/jq/cargar-request",
             dataType: "json",
-            type: "get",
-            data: {id: $('#identificador').val(), producto: $('#nombre_p').val(), metrica: $('#metrica').val(), cantidad: $('#precio_p').val()}
+            type: "post",
+            data: {id: $('#identificador').val(), producto: $('#nombre_p').val(), metrica: $('#metrica').val(), cantidad: $('#precio_p').val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         })
         .done(function(comp) {
             $('#example').DataTable().ajax.reload();
@@ -63,7 +64,7 @@ $(document).ready( function(){
             $('#modificar').prop('disabled', true);
         })
         .fail( function(){
-            console.log("fallo el ajax");
+            console.log("fallo el ajax2");
         });
 
     });
@@ -86,7 +87,7 @@ $(document).ready( function(){
 
         })
         .fail( function(){
-            console.log("fallo el ajax");
+            console.log("fallo el ajax aqui 89");
         });
     });
 

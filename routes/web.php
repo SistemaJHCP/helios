@@ -159,7 +159,7 @@ Route::group(['prefix' => 'requerimiento', 'middleware' => 'auth'],function() {
     Route::get('jq/lista-de-requerimientos/{id}','requerimientoController@jq_cargar_productos');
     Route::post('/jq/modificar-precio', 'requerimientoController@jq_precios');
     Route::get('/borrar/listado/{id}','requerimientoController@destroy')->name('requerimiento.eliminar');
-    Route::post('/js/modificar/listado/{id}','requerimientoController@edit')->name('requerimiento.modificar');
+    Route::get('/js/modificar/listado/{id}','requerimientoController@edit')->name('requerimiento.modificar');
     Route::post('/jq/cargar-request', 'requerimientoController@update');
     Route::get('/jquery/listadoSimple/{id}', 'requerimientoController@jq_general');
 });

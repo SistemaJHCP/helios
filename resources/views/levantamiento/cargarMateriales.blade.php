@@ -60,7 +60,7 @@
                     <center>
                             <button class="btn btn-primary" id="enviar">Agregar al listado</button>
                             <button class="btn btn-warning" id="modificar" disabled>Realizar modifición</button>
-                        </center>
+                    </center>
 
                 </div>
 
@@ -126,7 +126,7 @@
 <script src="{{ asset('plugins/numeric/jquery.numeric.js') }}"></script>
 <script src="{{ asset('js/lifting/materiales.js') }}"></script>
 <script>
-    var url = 'http://192.168.1.150/helios/public/requerimiento/jq/lista-de-requerimientos/' + {{ $levantamiento_general->id_levantamiento }};
+    var url = '../../requerimiento/jq/lista-de-requerimientos/' + {{ $levantamiento_general->id_levantamiento }};
     $('#example').DataTable({
         serverSide:true,
         ajax: url,
