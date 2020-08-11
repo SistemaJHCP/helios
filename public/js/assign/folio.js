@@ -2,7 +2,7 @@ $(document).ready( function(){
 
     $(document).on('change', '#lider', function(){
         var valor = this.value;
-        var url = "http://192.168.1.150/helios/public/asignacion/jq/datoslider/" + valor
+        var url = "../../asignacion/jq/datoslider/" + valor
         if (valor != "") {
             $.ajax({
 
@@ -21,7 +21,7 @@ $(document).ready( function(){
                     $("#nombre").html(comp[0].name + ' ' + comp[0].lastname);
                     $("#correo").html(comp[0].email);
                     $("#estado").html(comp[0].estado);
-                    $("#imagenUsuario").attr("src",'http://192.168.1.150/helios/public/'+comp[0].nombre_imagen);
+                    $("#imagenUsuario").attr("src",'../../'+comp[0].nombre_imagen);
 
                 }).fadeIn();
 

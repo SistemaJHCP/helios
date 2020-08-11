@@ -13,7 +13,7 @@ $(document).ready( function(){
         if(avance){
             $.ajax({
                 header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: "http://192.168.1.150/helios/public/levantamiento/jq/seguimientoTexto/" + id,
+                url: "../../levantamiento/jq/seguimientoTexto/" + id,
                 dataType: "json",
                 type: "GET",
                 data: {avance: avance}

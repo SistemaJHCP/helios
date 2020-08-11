@@ -2,7 +2,7 @@ $(document).ready( function(){
 
     $(document).on('change', '#lider', function(){
         var valor = this.value;
-        var url = "http://192.168.1.150/helios/public/asignacion/jq/datoslider/" + valor
+        var url = "../../asignacion/jq/datoslider/" + valor
         if (valor != "") {
             $.ajax({
 

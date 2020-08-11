@@ -3,7 +3,7 @@ listado();
 function listado(){
     $('#example').DataTable({
         "serverSide":true,
-        "ajax": 'http://192.168.1.150/helios/public/asignacion/jquery/listadooperador',
+        "ajax": '../../asignacion/jquery/listadooperador',
         "columns": [
             {data: 'correctivo'},
             {data: 'sintoma'},

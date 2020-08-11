@@ -17,7 +17,7 @@ $(document).on("click", "#elim", function(){
 
             $.ajax({
 
-                url: "http://192.168.1.150/helios/public/asignacion/jq/eliminarImagen/"+ desglozar[0] +"/"+desglozar[1],
+                url: "../../asignacion/jq/eliminarImagen/"+ desglozar[0] +"/"+desglozar[1],
                 type: 'GET',
                 dataType: 'json',
                 header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}

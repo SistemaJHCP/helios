@@ -2,7 +2,7 @@ $(document).ready( function(){
 
     $('#listadoCulminados').DataTable({
         serverSide: true,
-        ajax: "http://192.168.1.150/helios/public/asignacion/jquery/listado",
+        ajax: "../../asignacion/jquery/listado",
         columns: [
             {data:"correctivo"},
             {data:"sintoma"},
@@ -30,7 +30,7 @@ $(document).ready( function(){
             if (result.value) {
 
                 $.ajax({
-                    url: "http://192.168.1.150/helios/public/asignacion/jquery/reactivando/" + $(this).val(),
+                    url: "../../asignacion/jquery/reactivando/" + $(this).val(),
                     type: 'GET',
                     dataType: 'json',
                     header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
@@ -71,7 +71,7 @@ $(document).ready( function(){
 
                 var id = $(this).val();
                 $.ajax({
-                    url: "http://192.168.1.150/helios/public/asignacion/jquery/finlizar/" + id,
+                    url: "../../asignacion/jquery/finlizar/" + id,
                     type: 'GET',
                     dataType: 'json',
                     header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}

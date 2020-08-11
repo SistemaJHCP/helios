@@ -429,7 +429,7 @@
 <script>
 
     $(document).ready( function(){
-        var url = 'http://192.168.1.150/helios/public/requerimiento/jq/lista-de-requerimientos/' + {{ $operador->id_levantamiento }};
+        var url = '../../requerimiento/jq/lista-de-requerimientos/' + {{ $operador->id_levantamiento }};
         $('#example').DataTable({
             "serverSide":true,
             "ajax": url,
