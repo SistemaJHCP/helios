@@ -4,7 +4,7 @@ function listado(){
     $('#example').DataTable({
         serverSide:true,
         processing: true,
-        ajax: 'http://192.168.1.150/helios/public/operador/jquery/listadooperador',
+        ajax: 'operador/jquery/listadooperador',
         columns: [
             {data: 'correctivo'},
             {data: 'sintoma'},
@@ -142,7 +142,7 @@ $(document).on('click', '#eliminar', function(){
             var id = this.value;
 
             $.ajax({
-                url: "http://192.168.1.150/helios/public/operador/eliminar/" + id,
+                url: "operador/eliminar/" + id,
                 type: 'GET',
                 dataType: 'json',
                 header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
