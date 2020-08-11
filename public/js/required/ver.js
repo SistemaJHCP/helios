@@ -24,7 +24,7 @@ $(document).ready( function(){
 
         var asigId = $("#modificarMontos").val();
         var id = asigId.split('-');
-        var ruta3 = "http://192.168.1.150/helios/public/precios/jq/cambiar-precios/4r5t67y8" + id[0] +"/"+ id[1];
+        var ruta3 = "../../precios/jq/cambiar-precios/4r5t67y8" + id[0] +"/"+ id[1];
             $.ajax({
                 url: ruta3,
                 data:{'costos': cos},
@@ -35,7 +35,7 @@ $(document).ready( function(){
             .done(function(comp) {
                 if (comp == true) {
                     $('button').attr("disabled", true);
-                    document.location.href = 'http://192.168.1.150/helios/public/asignacion?msj=joss';
+                    document.location.href = '../../asignacion?msj=joss';
                 } else {
                     alert("Algo esta fallando");
                 }
@@ -68,7 +68,7 @@ $(document).ready( function(){
 
         var asigId = $("#cargarMontos").val();
         var id = asigId.split('-');
-        var ruta3 = "http://192.168.1.150/helios/public/precios/jq/cargar-precios/4r5t67y8" + id[0] +"/"+ id[1];
+        var ruta3 = "../../precios/jq/cargar-precios/4r5t67y8" + id[0] +"/"+ id[1];
             $.ajax({
                 url: ruta3,
                 data:{'costos': cos},
@@ -79,7 +79,7 @@ $(document).ready( function(){
             .done(function(comp) {
                 if (comp == true) {
                     $('button').attr("disabled", true);
-                    document.location.href = 'http://192.168.1.150/helios/public/asignacion';
+                    document.location.href = '../../asignacion';
                 } else {
                     alert("Algo esta fallando");
                 }
@@ -181,7 +181,7 @@ $(document).ready( function(){
 
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "http://192.168.1.150/helios/public/requerimiento/jq/cargar-request",
+            url: "../../requerimiento/jq/cargar-request",
             dataType: "json",
             type: "post",
             data: {id: $('#identificador').val(), producto: $('#nombre_p').val(), metrica: $('#metrica').val(), cantidad: $('#precio_p').val()}

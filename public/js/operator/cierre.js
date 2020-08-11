@@ -33,7 +33,7 @@ $(document).ready(function(){
                     header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
                 })
                 .done(function(comp) {
-                    window.location.href = "http://192.168.1.150/helios/public/operador";
+                    window.location.href = "../../operador";
                     Swal.fire(
                         'Se ha culminado el proyecto',
                         'Felicitaciones.',

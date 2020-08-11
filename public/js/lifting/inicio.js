@@ -4,7 +4,7 @@ $(document).ready( function(){
         $('#example').DataTable().ajax.reload();
     },15000);
 
-    var rutaPrincipal = '../../levantamiento/jq/listado/index';
+    var rutaPrincipal = 'levantamiento/jq/listado/index';
     inicio(rutaPrincipal);
 
     function inicio(ruta){
@@ -40,7 +40,7 @@ $(document).ready( function(){
                 var id = $(this).val();
                 $.ajax({
                     header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    url: "../../levantamiento/jq/culminar/" + id,
+                    url: "levantamiento/jq/culminar/" + id,
                     dataType: "json",
                     type: "GET"
                 })
@@ -64,35 +64,35 @@ $(document).ready( function(){
     });
 
     $("#culminados").on('click', function(){
-        inicio('../../levantamiento/jquery/culminados');
+        inicio('levantamiento/jquery/culminados');
     });
 
     $("#ejecucion").on('click', function(){
-        inicio('../../levantamiento/jquery/ejecutandose');
+        inicio('levantamiento/jquery/ejecutandose');
     });
 
     $("#enEspera").on('click', function(){
-        inicio('../../levantamiento/jquery/en-espera');
+        inicio('levantamiento/jquery/en-espera');
     });
 
     $("#cerraLider").on('click', function(){
-        inicio('../../levantamiento/jquery/cerrado-por-lider');
+        inicio('levantamiento/jquery/cerrado-por-lider');
     });
 
     $("#cancelado").on('click', function(){
-        inicio('../../levantamiento/jquery/cancelados');
+        inicio('levantamiento/jquery/cancelados');
     });
 
     $("#todos").on('click', function(){
-        inicio('../../levantamiento/jq/listado/index');
+        inicio('levantamiento/jq/listado/index');
     });
 
     $("#asignacion").on('click', function(){
-        inicio('../../levantamiento/jq/jquery/asignacion');
+        inicio('levantamiento/jq/jquery/asignacion');
     });
 
     $("#esperandoA").on('click', function(){
-        inicio('../../levantamiento/jquery/esperando-apro');
+        inicio('levantamiento/jquery/esperando-apro');
     });
 
 });

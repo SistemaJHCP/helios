@@ -142,7 +142,7 @@
             $('#envio').prop('disabled', false);
 
             var nombre = $("#nombre_politica").val();
-            var ruta_opciones = "http://192.168.1.150/helios/public/politicas/jq_permisos/" + nombre;
+            var ruta_opciones = "../../politicas/jq_permisos/" + nombre;
 
             $.ajax({
                 url: ruta_opciones,

@@ -2,7 +2,7 @@ $(document).ready( function(){
 
     $('#example').DataTable({
         "serverSide":true,
-        "ajax": 'http://192.168.1.150/helios/public/usuarios/jquery/listadousuario',
+        "ajax": '../../usuarios/jquery/listadousuario',
         "columns": [
             {data: 'id'},
             {data: 'nombre_completo'},
@@ -44,7 +44,7 @@ $(document).ready( function(){
     $('#correo').blur( function(){
 
         var correo = $("#correo").val();
-        var ruta_opciones = "http://192.168.1.150/helios/public/usuarios/correo/" + correo;
+        var ruta_opciones = "../../usuarios/correo/" + correo;
 
         $.ajax({
             url: ruta_opciones,
