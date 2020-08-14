@@ -15,10 +15,10 @@ class requerimientoController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $req = Requerimiento::find($id);
-        
+        $req = Requerimiento::find($request->id);
+        dd($request);
         return response()->json($req);
     }
 

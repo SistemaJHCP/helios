@@ -100,7 +100,7 @@ Route::group(['prefix' => 'configuracion_general', 'middleware' => 'auth'],funct
 Route::group(['prefix' => 'asignacion', 'middleware' => 'auth'],function() {
 
     Route::get('/','asignacionController@index')->name('asignacion.index');
-    Route::get('/listado','asignacionController@mostrar')->name('asignacion.mostrar');
+    Route::post('/listado','asignacionController@mostrar')->name('asignacion.mostrar');
     Route::get('/mostrar-asignacion/dd0ssjs8sksjs6tts42293h363bgygbhnjmkloijuhygvcfvbu9u8huyg{id}vtgbhnj','asignacionController@mostrarAsignacion')->name('asignacion.mostrarAsignacion');
     Route::get('/folio/87g9gx9xyaxsxbs79xasxg97sx9saxg7gas9xyiabsxusa9xg7asxasg9xa7sx8sxxag79gx9xyaxsxbs79xasxg97sx9saxg7gas9xyiabsxusa9xg7asxasg9xa7sx8asg9xasxg9a7xsyxasg9{id}sx7gsgax7saxs','asignacionController@show')->name('asignacion.ver');
     Route::post('/procesar/{id}','asignacionController@procesando')->name('asignacion.crear');
@@ -159,7 +159,7 @@ Route::group(['prefix' => 'requerimiento', 'middleware' => 'auth'],function() {
     Route::get('jq/lista-de-requerimientos/{id}','requerimientoController@jq_cargar_productos');
     Route::post('/jq/modificar-precio', 'requerimientoController@jq_precios');
     Route::get('/borrar/listado/{id}','requerimientoController@destroy')->name('requerimiento.eliminar');
-    Route::get('/js/modificar/listado/{id}','requerimientoController@edit')->name('requerimiento.modificar');
+    Route::post('/js/modificar/listado/','requerimientoController@edit')->name('requerimiento.modificar');
     Route::post('/jq/cargar-request', 'requerimientoController@update');
     Route::get('/jquery/listadoSimple/{id}', 'requerimientoController@jq_general');
 });

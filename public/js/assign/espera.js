@@ -3,7 +3,7 @@
 
         serverSide:true,
         processing: true,
-        ajax: '../../asignacion/jquery/waiting',
+        ajax: '../asignacion/jquery/waiting',
         columns: [
             {data: 'correctivo'},
             {data: 'sintoma'},
