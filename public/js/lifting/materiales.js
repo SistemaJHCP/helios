@@ -24,7 +24,7 @@ $(document).ready( function(){
 
     $("#enviar").on('click', function(){
 
-        var ruta_txt = "requerimiento/jq/modificar-precio";
+        var ruta_txt = "../../requerimiento/jq/modificar-precio";
             $.ajax({
                 url: ruta_txt,
                 data:{'nombre': $("#nombre_p").val(), 'metrica': $("#metrica").val(), 'precio_p': $("#precio_p").val(),'levantamiento': $("#levantamiento").val()},
@@ -40,7 +40,7 @@ $(document).ready( function(){
                 $('#precio_p').val("");
             })
             .fail( function(){
-                console.log("fallo el ajax 465");
+                console.log("fallo el ajax 46w");
             });
 
     });
@@ -49,7 +49,7 @@ $(document).ready( function(){
 
         $.ajax({
             header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "requerimiento/jq/cargar-request",
+            url: "../../requerimiento/jq/cargar-request",
             dataType: "json",
             type: "post",
             data: {id: $('#identificador').val(), producto: $('#nombre_p').val(), metrica: $('#metrica').val(), cantidad: $('#precio_p').val()},
@@ -71,12 +71,12 @@ $(document).ready( function(){
 
 
     $(document).on('click', '#modificandoMaterial', function(){
-        var rute2 = $(this).val();
         $.ajax({
-            url: rute2,
-            type: "get",
+            url: "../../requerimiento/js/modificar/listado",
+            type: "post",
             dataType: "json",
-            header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+            data: { id: $(this).val() },
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         })
         .done(function(comp) {
             $('#nombre_p').val(comp['nombre_producto']);
@@ -87,7 +87,7 @@ $(document).ready( function(){
 
         })
         .fail( function(){
-            console.log("fallo el ajax aqui 89");
+            console.log("fallo el ajax aqui 89q");
         });
     });
 

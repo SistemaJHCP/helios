@@ -18,7 +18,6 @@ class requerimientoController extends Controller
     public function edit(Request $request)
     {
         $req = Requerimiento::find($request->id);
-        dd($request);
         return response()->json($req);
     }
 
@@ -99,5 +98,16 @@ class requerimientoController extends Controller
         ->toJson();
     }
 
+
+    public function jq_modUno(Request $request){
+
+        $mod = Requerimiento::find($request->id);
+        dd($mod);
+        $mod->nombre_producto = $request->producto;
+        $mod->metrica = $request->metrica;
+        $mod->cantidad = $request->cantidad;
+
+        $mod->update();
+    }
 
 }

@@ -98,7 +98,7 @@ $(document).ready( function(){
 
     $("#enviar").on('click', function(){
 
-        var ruta_txt = "../requerimiento/jq/modificar-precio";
+        var ruta_txt = "../../requerimiento/jq/modificar-precio";
             $.ajax({
                 url: ruta_txt,
                 data:{'nombre': $("#nombre_p").val(), 'metrica': $("#metrica").val(), 'precio_p': $("#precio_p").val(),'levantamiento': $("#levantamiento").val()},
@@ -159,11 +159,11 @@ $(document).ready( function(){
     $(document).on('click', '#modificandoMaterial', function(){
 
             $.ajax({
-            url: '../../requerimiento/js/modificar/listado/',
-            type: "POST",
-            dataType: "json",
-            data: { id: $(this).val() },
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                url: "../../requerimiento/js/modificar/listado",
+                type: "post",
+                dataType: "json",
+                data: { id: $(this).val() },
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         })
         .done(function(comp) {
             $('#nombre_p').val(comp['nombre_producto']);
@@ -181,11 +181,12 @@ $(document).ready( function(){
     $(document).on('click', '#modificar', function(){
 
         $.ajax({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "../requerimiento/jq/cargar-request",
+            header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "../../requerimiento/jq/cargar-request",
             dataType: "json",
             type: "post",
-            data: {id: $('#identificador').val(), producto: $('#nombre_p').val(), metrica: $('#metrica').val(), cantidad: $('#precio_p').val()}
+            data: {id: $('#identificador').val(), producto: $('#nombre_p').val(), metrica: $('#metrica').val(), cantidad: $('#precio_p').val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         })
         .done(function(comp) {
             $('#example').DataTable().ajax.reload();
