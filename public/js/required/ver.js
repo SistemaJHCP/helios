@@ -24,7 +24,7 @@ $(document).ready( function(){
 
         var asigId = $("#modificarMontos").val();
         var id = asigId.split('-');
-        var ruta3 = "../precios/jq/cambiar-precios/4r5t67y8" + id[0] +"/"+ id[1];
+        var ruta3 = "../../precios/jq/cambiar-precios/4r5t67y8" + id[0] +"/"+ id[1];
             $.ajax({
                 url: ruta3,
                 data:{'costos': cos},
@@ -35,7 +35,7 @@ $(document).ready( function(){
             .done(function(comp) {
                 if (comp == true) {
                     $('button').attr("disabled", true);
-                    document.location.href = '../asignacion?msj=joss';
+                    document.location.href = '../../asignacion?msj=joss';
                 } else {
                     alert("Algo esta fallando");
                 }
@@ -68,7 +68,7 @@ $(document).ready( function(){
 
         var asigId = $("#cargarMontos").val();
         var id = asigId.split('-');
-        var ruta3 = "../precios/jq/cargar-precios/4r5t67y8" + id[0] +"/"+ id[1];
+        var ruta3 = "../../precios/jq/cargar-precios/4r5t67y8" + id[0] +"/"+ id[1];
             $.ajax({
                 url: ruta3,
                 data:{'costos': cos},
@@ -79,13 +79,13 @@ $(document).ready( function(){
             .done(function(comp) {
                 if (comp == true) {
                     $('button').attr("disabled", true);
-                    document.location.href = '../asignacion';
+                    document.location.href = '../../asignacion?msj=yves';
                 } else {
                     alert("Algo esta fallando");
                 }
             })
             .fail( function(){
-                console.log("fallo el ajax");
+                console.log("fallo el ajas");
 
             });
 

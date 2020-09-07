@@ -18,7 +18,11 @@
 <?php
 
     if(isset($_GET['msj'])) {
-        Alert::success('Se ha cargado el monto en el sistema.');
+        if ($_GET['msj'] == "yves") {
+        Alert::success('Se ha cargado la información de manera correcta.');
+        }elseif ($_GET['msj'] == "joss") {
+        Alert::success('Se ha realizado la modificación salisfactoriamente.');
+        }
     }
 
 ?>

@@ -82,11 +82,6 @@
                     <p>Por favor agregue las imágenes de la obra del día: </p>
                     <p><div id="ava"></div></p>
 
-                    {{-- <form action="{{ route('levantamiento.cargaImagenes', $id) }}"  style="height: 300px; overflow: scroll;" class="dropzone" id="dropzone" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id2" id="id2" value="">
-                        @csrf
-                    </form> --}}
-
                     <form action="{{ route('levantamiento.cargaImagenes', $id) }}" style="height: 300px; overflow: scroll;" class="dropzone" id="otroDropzone" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id2" id="id2" value="">
@@ -115,7 +110,7 @@
 
     $('#example').DataTable({
         serverSide: true,
-        ajax: "http://192.168.1.150/helios/public/levantamiento/jq/listadoDeImagenes/" + id,
+        ajax: "../../levantamiento/jq/listadoDeImagenes/" + id,
         columns: [
             {data: 'btn'}
         ],

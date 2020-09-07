@@ -394,7 +394,7 @@
 <script src="{{ asset('js/operator/aproNega.js') }}"></script>
 <script>
     $(document).ready( function(){
-        var url = 'http://192.168.1.150/helios/public/requerimiento/jquery/listadoSimple/' + {{ $levantamiento->id }};
+        var url = '../../requerimiento/jquery/listadoSimple/' + {{ $levantamiento->id }};
         $('#example').DataTable({
             serverSide:true,
             ajax: url,

@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('#example').DataTable({
         serverSide:true,
         processing: true,
-        ajax: '../../operador/jquery/enEspera',
+        ajax: '../operador/jquery/enEspera',
         columns: [
             {data: 'correctivo'},
             {data: 'sintoma'},
@@ -18,7 +18,7 @@ $(document).ready(function(){
     $('#casiCulminado').DataTable({
         serverSide:true,
         processing: true,
-        ajax: '../../operador/jquery/casiCulminado',
+        ajax: '../operador/jquery/casiCulminado',
         columns: [
             {data: 'correctivo'},
             {data: 'sintoma'},
