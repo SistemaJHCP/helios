@@ -111,6 +111,7 @@ Route::group(['prefix' => 'asignacion', 'middleware' => 'auth'],function() {
     Route::get('/jq/lista/borrar-imagen', 'asignacionController@borrarImagen');
     Route::get('/jq/eliminarImagen/{id_imagen}/{id_seguimiento}','asignacionController@borrarImagen');
 
+    Route::get('/jquery/en-ejecucion-de-obra', 'asignacionController@enEjecucion')->name('asignacion.en-ejecucion');
     Route::get('/jq/datoslider/{id}','asignacionController@identificar')->name('asignacion.identificar');
     Route::get('/jquery/listadooperador','asignacionController@jq_lista')->name('jquery.asignacion.listado');
     Route::get('/jquery/waiting','asignacionController@esperando');
@@ -121,6 +122,7 @@ Route::group(['prefix' => 'asignacion', 'middleware' => 'auth'],function() {
     Route::get('/esperando-aprobacion','asignacionController@esperaAprobacion')->name('asignacion.esperaAprobacion');
     Route::get('consultar/87sxyhjnhu8s7yjsngts5rsdfy765rgu89okjy6trdfgt{id}y7s8isjhgfssjksuy78siuygshji87tsuisjyts','asignacionController@consulta')->name('asignacion.consultar');
     Route::get('/caso-imagenes/ctyiuijigy{id}656rtryf7y89uiohuvtcrt', 'asignacionController@consultarHistorialImagenes')->name('asignacion.casoImagenes');
+    Route::get('consultar-caso/7yutghiuygyfguyo8t76r6t7y{id}8ugy7t897fuyguy89t78r65e64xrdfgyut', 'asignacionController@casosEnEjecucion')->name('asignacion.verCasoEjecucion');
 });
 
 Route::group(['prefix' => 'levantamiento', 'middleware' => 'auth'],function() {
@@ -140,7 +142,7 @@ Route::group(['prefix' => 'levantamiento', 'middleware' => 'auth'],function() {
     Route::get('/jquery/cerrado-por-lider', 'levantamientoController@cerradoLider');
     Route::get('/jquery/cancelados', 'levantamientoController@cancelados');
     Route::get('/jq/jquery/asignacion', 'levantamientoController@asignacion');
-    Route::get('cargandoimagenes/s8yuhs98suhnjsuhi9s87y{id}09898uyghbvfdrf','levantamientoController@vistaCargaImagenes')->name("levantamiento.vistaCargaImagenes");
+    Route::get('cargandoimagenes/s18yuhs98suhnjsuhi9s87y{id}09898uyghbvfdrf','levantamientoController@vistaCargaImagenes')->name("levantamiento.vistaCargaImagenes");
     Route::post('cargandoimagenes/s8yuhs98suhnjsuhi9s87y{id}x{id_seguimiento}09898uyghbvfdrf','levantamientoController@modCargaImagenes')->name("levantamiento.modCargaImagenes");
     Route::post('carga-de-imagenes/s8yuhs98suhnjsuhi9s87y{id}09898uyghbvfdrf','levantamientoController@cargaImagenes')->name('levantamiento.cargaImagenes');
     Route::get('/jq/listadoDeImagenes/{id}','levantamientoController@jq_listadoDeImagen');

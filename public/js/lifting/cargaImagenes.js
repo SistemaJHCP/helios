@@ -1,11 +1,8 @@
 $(document).ready( function(){
 
-
-
     setInterval(function(){
         $('#example').DataTable().ajax.reload();
     },30000);
-
 
     $("#submit").on('click', function(){
         var avance = $("#avance").val();
@@ -34,11 +31,6 @@ $(document).ready( function(){
             alert("esta vacio");
         }
     });
-
-
-
-
-
 
 });
 

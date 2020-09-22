@@ -281,6 +281,14 @@ class asignacionController extends Controller
         return view('asignacion.consultarImagen')->with('datos', $datos)->with('imagenes', $img)->with('id', $id)->with('caso', $caso);
     }
 
+    public function casosEnEjecucion($id)
+    {
+        return view('asignacion.consultarCasoEspecifico')->with(["id" => $id]);
+    }
+
+
+
+
 //----------------  jquery ----------------------------
     public function jq_lista(){
 
@@ -385,11 +393,14 @@ class asignacionController extends Controller
         return response()->json($result);
     }
 
-
-
-
-
-
+    public function enEjecucion()
+    {
+        return datatables()
+        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', 'ejecutando')->orderBy('correctivo', 'DESC'))
+        ->addColumn('btn','asignacion.btnConsultarObra')
+        ->rawColumns(['btn'])
+        ->toJson();
+    }
 
 
 

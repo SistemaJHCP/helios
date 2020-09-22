@@ -190,7 +190,7 @@ class levantamientoController extends Controller
     public function cargaImagenes(Request $request, $id){
 
         $request->validate([
-            'file' => 'image|max:4000'
+            'file' => 'image|max:10000'
         ]);
 
         $image = $request->file('file');

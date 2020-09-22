@@ -3,7 +3,7 @@ listado();
 function listado(){
     $('#example').DataTable({
         "serverSide":true,
-        "ajax": '../asignacion/jquery/listadooperador',
+        "ajax": '../asignacion/jquery/en-ejecucion-de-obra',
         "columns": [
             {data: 'correctivo'},
             {data: 'sintoma'},
