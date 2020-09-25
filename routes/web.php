@@ -123,6 +123,8 @@ Route::group(['prefix' => 'asignacion', 'middleware' => 'auth'],function() {
     Route::get('consultar/87sxyhjnhu8s7yjsngts5rsdfy765rgu89okjy6trdfgt{id}y7s8isjhgfssjksuy78siuygshji87tsuisjyts','asignacionController@consulta')->name('asignacion.consultar');
     Route::get('/caso-imagenes/ctyiuijigy{id}656rtryf7y89uiohuvtcrt', 'asignacionController@consultarHistorialImagenes')->name('asignacion.casoImagenes');
     Route::get('consultar-caso/7yutghiuygyfguyo8t76r6t7y{id}8ugy7t897fuyguy89t78r65e64xrdfgyut', 'asignacionController@casosEnEjecucion')->name('asignacion.verCasoEjecucion');
+    Route::get('/jq/listado-Imagenes/{id}','asignacionController@jq_listadoDeImagen2');
+    Route::get('/caso-imagenes/ctyiuijigy{id}656rtr{id2}yf7y89uiohuvtcrt', 'asignacionController@consultarHistorialImagenes2')->name('asignacion.casoImagenes2');
 });
 
 Route::group(['prefix' => 'levantamiento', 'middleware' => 'auth'],function() {

@@ -283,10 +283,19 @@ class asignacionController extends Controller
 
     public function casosEnEjecucion($id)
     {
-        return view('asignacion.consultarCasoEspecifico')->with(["id" => $id]);
+        $caso = Operador::find($id);
+
+        return view('asignacion.consultarCasoEspecifico')->with(["id_ruta" => $id, "caso" => $caso]);
     }
 
+    public function consultarHistorialImagenes2($id, $id2){
 
+        $datos = DB::table('vw_primera_lista_imagenes')->where('id', $id)->first();
+        $img = DB::table('vw_img')->where('id_seg', $id)->get();
+        $caso = Operador::where('id', $datos->caso_id)->first();
+
+        return view('asignacion.consultarImagen2')->with('datos', $datos)->with('imagenes', $img)->with('id', $id)->with('regresar', $id2);
+    }
 
 
 //----------------  jquery ----------------------------
@@ -364,6 +373,9 @@ class asignacionController extends Controller
         $d = Imagen::find($id_imagen);
 
         if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+
+
+
             $cadena = str_replace('/','\\', $d->ruta_imagenes);
         } else {
             $cadena = $d->ruta_imagenes;
@@ -402,6 +414,13 @@ class asignacionController extends Controller
         ->toJson();
     }
 
+    public function jq_listadoDeImagen2($id){
 
+        $query = DB::table('vw_primera_lista_imagenes')->where('caso_id', $id)->orderBy('id', 'DESC')->get();
+
+        return datatables()->of($query)
+        ->addColumn('btn','asignacion.btnImagenesLista2')
+        ->rawColumns(['btn'])->toJson();
+    }
 
 }
