@@ -7,8 +7,8 @@
 @endsection
 @section('mini-cabecera')
 <h1>
-    Políticas
-    <small>y permisos</small>
+    Fólios
+    <small>en ejecución</small>
 </h1>
 <ol class="breadcrumb">
     <li><i class="glyphicon glyphicon-ban-circle"> </i> Políticas y permisos <div class="glyphicon glyphicon-menu-left"></div>  Configuración  </li>

@@ -5,8 +5,8 @@
 @endsection
 @section('mini-cabecera')
 <h1>
-    Asignación
-    <small>de casos</small>
+    Fólios
+    <small>en ejecución</small>
 </h1>
 <ol class="breadcrumb">
     <li><i class="fa fa-calendar-check-o"></i> Ver fólios <div class="glyphicon glyphicon-menu-left"></div></i> asignación de casos <div class="glyphicon glyphicon-menu-left"></div>  Coordinador  </li>

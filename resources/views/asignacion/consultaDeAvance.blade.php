@@ -307,7 +307,7 @@
 <script>
     $('#example').DataTable({
         serverSide: true,
-        ajax: "http://192.168.1.150/helios/public/asignacion/jq/listadoDeImagenes/" + {{ $id }},
+        ajax: "../../asignacion/jq/listadoDeImagenes/" + {{ $id }},
         columns: [
             {data: 'btn'}
         ],

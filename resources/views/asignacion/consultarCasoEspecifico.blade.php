@@ -7,15 +7,11 @@
 @endsection
 @section('mini-cabecera')
 <h1>
-    Asignación
-    <small>de casos</small>
+    Fólios
+    <small>en ejecución</small>
 </h1>
 <ol class="breadcrumb">
-    <li>
-        <i class="glyphicon glyphicon-ban-circle"> caso <div class="glyphicon glyphicon-menu-left"></div></i>
-        asignación de casos <div class="glyphicon glyphicon-menu-left"></div></i>
-        Coordinador <div class="glyphicon glyphicon-menu-left"></div></i>
-    </li>
+    <li><i class="fa fa-folder"></i> Fólios en ejecucion <div class="glyphicon glyphicon-menu-left"></div></i> asignación de casos <div class="glyphicon glyphicon-menu-left"></div>  Coordinador  </li>
 </ol>
 <hr>
 @endsection
