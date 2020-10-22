@@ -111,7 +111,7 @@
 
         {{-- ------------------------ --}}
 
-        <a href="{{ route('asignacion.mostrar') }}">
+        <a href="{{ route('asignacion.mostrarCoord') }}">
             <div class="info-box bg-purple">
                 <span class="info-box-icon"><i class="ion ion-android-document" style="font-size:40px;"></i></span>
 

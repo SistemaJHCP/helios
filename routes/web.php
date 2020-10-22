@@ -101,6 +101,8 @@ Route::group(['prefix' => 'asignacion', 'middleware' => 'auth'],function() {
 
     Route::get('/','asignacionController@index')->name('asignacion.index');
     Route::get('/listado','asignacionController@mostrar')->name('asignacion.mostrar');
+    Route::get('/mostrar-coordinador','asignacionController@mostrarCoord')->name('asignacion.mostrarCoord');
+    Route::get('/jq/ejecutandose','asignacionController@jq_ejecutandoCoord');
     Route::get('/mostrar-asignacion/dd0ssjs8sksjs6tts42293h363bgygbhnjmkloijuhygvcfvbu9u8huyg{id}vtgbhnj','asignacionController@mostrarAsignacion')->name('asignacion.mostrarAsignacion');
     Route::get('/folio/87g9gx9xyaxsxbs79xasxg97sx9saxg7gas9xyiabsxusa9xg7asxasg9xa7sx8sxxag79gx9xyaxsxbs79xasxg97sx9saxg7gas9xyiabsxusa9xg7asxasg9xa7sx8asg9xasxg9a7xsyxasg9{id}sx7gsgax7saxs','asignacionController@show')->name('asignacion.ver');
     Route::post('/procesar/{id}','asignacionController@procesando')->name('asignacion.crear');
@@ -112,6 +114,7 @@ Route::group(['prefix' => 'asignacion', 'middleware' => 'auth'],function() {
     Route::get('/jq/eliminarImagen/{id_imagen}/{id_seguimiento}','asignacionController@borrarImagen');
 
     Route::get('/jquery/en-ejecucion-de-obra', 'asignacionController@enEjecucion')->name('asignacion.en-ejecucion');
+    Route::get('/jquery/revision-de-obra', 'asignacionController@enEjecucionCoord')->name('asignacion.en-ejecucion-coord');
     Route::get('/jq/datoslider/{id}','asignacionController@identificar')->name('asignacion.identificar');
     Route::get('/jquery/listadooperador','asignacionController@jq_lista')->name('jquery.asignacion.listado');
     Route::get('/jquery/waiting','asignacionController@esperando');

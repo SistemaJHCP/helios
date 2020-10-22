@@ -6,7 +6,7 @@
 @section('mini-cabecera')
 <h1>
     Fólios
-    <small>asignados</small>
+    <small>en ejecución</small>
 </h1>
 <ol class="breadcrumb">
     <li><i class="fa fa-calendar-check-o"></i> Ver fólios <div class="glyphicon glyphicon-menu-left"></div></i> asignación de casos <div class="glyphicon glyphicon-menu-left"></div>  Coordinador  </li>
@@ -58,5 +58,7 @@
 @section('js')
 <script src="{{ asset('plugins/datatables.net/js/datatables.min.js') }}"></script>
 <script src="{{ asset('js/assign/asignar.js') }}"></script>
-<script>listado();</script>
+<script>
+    listaCoordinador();
+</script>
 @endsection

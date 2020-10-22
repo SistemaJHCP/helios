@@ -65,6 +65,18 @@ class asignacionController extends Controller
         return view('asignacion.asignar');
     }
 
+    public function mostrarCoord(){
+
+        $u  = $this->usuarioppal();
+        if ($u->coord_listado != 1) {
+            Alert::warning('Usted no tiene permisos', 'para realizar esta acción.');
+            return redirect()->route('home');
+        }
+
+
+        return view('asignacion.asignarCoord');
+    }
+
 
     public function procesando(Request $request, $id)
     {
@@ -407,11 +419,30 @@ class asignacionController extends Controller
 
     public function enEjecucion()
     {
-        return datatables()
-        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', 'ejecutando')->orderBy('correctivo', 'DESC'))
-        ->addColumn('btn','asignacion.btnConsultarObra')
+
+         return datatables()
+        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible'])->orderBy('correctivo', 'DESC'))
+        ->addColumn('btn','asignacion.btn')
         ->rawColumns(['btn'])
         ->toJson();
+
+    }
+
+    public function enEjecucionCoord()
+    {
+
+        // return datatables()
+        // ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', 'disponible')->orderBy('correctivo', 'DESC'))
+        // ->addColumn('btn','asignacion.btnConsultarObra')
+        // ->rawColumns(['btn'])
+        // ->toJson();
+
+        return datatables()
+        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['ejecutando'])->orderBy('correctivo', 'DESC'))
+        ->addColumn('btn','btnConsultarObra')
+        ->rawColumns(['btn'])
+        ->toJson();
+
     }
 
     public function jq_listadoDeImagen2($id){
@@ -421,6 +452,19 @@ class asignacionController extends Controller
         return datatables()->of($query)
         ->addColumn('btn','asignacion.btnImagenesLista2')
         ->rawColumns(['btn'])->toJson();
+    }
+
+
+
+    public function jq_ejecutandoCoord()
+    {
+
+        return datatables()
+        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible','asignado'])->orderBy('correctivo', 'DESC'))
+        ->addColumn('btn','asignacion.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+
     }
 
 }
