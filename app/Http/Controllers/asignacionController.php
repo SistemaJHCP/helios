@@ -41,14 +41,14 @@ class asignacionController extends Controller
             $mios = Operador::select()->where('disponibilidad', 'evaluando')->orWhere('disponibilidad', 'esperando aprobación')->orWhere('disponibilidad', 'en espera del cliente')->count();
             $ejecucion = Operador::select()->where('disponibilidad', 'ejecutando')->count();
             $cancelado = Operador::select()->where('disponibilidad', 'cancelado')->count();
-            $culminadoLider = Operador::select()->where('disponibilidad', 'cerrado por lider')->count();
+            $culminadoLider = Operador::select()->where('disponibilidad', 'cerrado por lider')->orWhere('disponibilidad', 'cerrado por coord')->count();
         } else {
             $asig =  DB::table('vw_asignacion_index')->where('coordinador_jhcp_id', \Auth::user()->id)->get();
             $total = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->count();
             $mios = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'evaluando')->orWhere('disponibilidad', 'esperando aprobación')->orWhere('disponibilidad', 'en espera del cliente')->count();
             $ejecucion = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'ejecutando')->count();
             $cancelado = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'cancelado')->count();
-            $culminadoLider = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'cerrado por lider')->count();
+            $culminadoLider = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'cerrado por lider')->orWhere('disponibilidad', 'cerrado por coord')->count();
         }
 
         return view('asignacion.index')->with('asig', $asig)->with('total',$total)->with('en_espera', $mios)->with('enEjecucion', $ejecucion)->with('cancelado', $cancelado)->with('culLid', $culminadoLider);
@@ -372,7 +372,7 @@ class asignacionController extends Controller
     public function listadoCulminado()
     {
         return datatables()
-        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', 'cerrado por lider')->orderBy('correctivo', 'DESC'))
+        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', 'cerrado por lider')->orWhere('disponibilidad','cerrado por coord')->orderBy('correctivo', 'DESC'))
         ->addColumn('btn','asignacion.btnCulm')
         ->rawColumns(['btn'])
         ->toJson();
@@ -439,7 +439,7 @@ class asignacionController extends Controller
 
         return datatables()
         ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['ejecutando'])->orderBy('correctivo', 'DESC'))
-        ->addColumn('btn','btnConsultarObra')
+        ->addColumn('btn','asignacion.btnConsultarObra')
         ->rawColumns(['btn'])
         ->toJson();
 
