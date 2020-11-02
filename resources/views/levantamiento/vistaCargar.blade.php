@@ -1,3 +1,4 @@
+{{ dump($id) }}
 @extends('layouts.template')
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/datatables.net/css/datatables.css') }}">
@@ -92,7 +93,7 @@
                             </div>
                             Solo se deben de cargar imágenes <br> (Tamaño máximo 10mb)
                         </div>
-                        {{-- <input type="hidden" id="id2" name="id2" value=""> --}}
+                        <input type="hidden" id="id2" name="id2" value="">
                     </form>
 
                 </div>
