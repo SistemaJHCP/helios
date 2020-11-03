@@ -5,8 +5,8 @@
 @endsection
 @section('mini-cabecera')
 <h1>
-    Aprobación o negativa
-    <small>de atencion de solicitud</small>
+    Finalización
+    <small>del proyecto</small>
 </h1>
 <ol class="breadcrumb">
     <li><i class="fa fa-check"> </i> Evaluacion de la solicitud <div class="glyphicon glyphicon-menu-left"></div>  Operador  </li>
@@ -460,8 +460,8 @@
     }
 
 
-    lista('http://192.168.1.150/helios/public/requerimiento/jquery/listadoSimple/' + {{ $levantamiento->id }});
-    var fin ='http://192.168.1.150/helios/public/operador/jquery/finalizarCaso/' + {{ $id }};
+    lista('../../requerimiento/jquery/listadoSimple/' + {{ $levantamiento->id }});
+    var fin ='../../operador/jquery/finalizarCaso/' + {{ $id }};
 
 
     $('#myModal').on('shown.bs.modal', function () {

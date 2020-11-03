@@ -1,4 +1,3 @@
-{{ dump($id) }}
 @extends('layouts.template')
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/datatables.net/css/datatables.css') }}">
