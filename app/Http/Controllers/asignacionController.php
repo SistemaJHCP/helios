@@ -421,7 +421,7 @@ class asignacionController extends Controller
     {
 
          return datatables()
-        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible'])->orderBy('correctivo', 'DESC'))
+        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible'])->orWhere('disponibilidad', ['asignado'])->orderBy('correctivo', 'DESC'))
         ->addColumn('btn','asignacion.btn')
         ->rawColumns(['btn'])
         ->toJson();
