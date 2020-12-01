@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Seguimiento;
 
+
 class seguimientoController extends Controller
 {
 
@@ -15,11 +16,11 @@ class seguimientoController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $seguimiento = new Seguimiento();
+        // $seguimiento = new Seguimiento();
 
-        $seguimiento->fotografo = /Auth::user()->id;
-        $seguimiento->caso_id = $id;
-        $seguimiento->avance = $request->avance;
+        // $seguimiento->fotografo = Auth::user()->id;
+        // $seguimiento->caso_id = $id;
+        // $seguimiento->avance = $request->avance;
 
 
 
