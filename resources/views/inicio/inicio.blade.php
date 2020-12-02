@@ -1,4 +1,7 @@
 @extends('layouts.template')
+@section('css')
+<link rel="stylesheet" href="{{ asset('plugins/bower_components/Ionicons/css/ionicons.min.css') }}">
+@endsection
 @section('mini-cabecera')
 <h1>
     Bienvenido
@@ -19,24 +22,25 @@
         </p>
 
 
-        <div class="row">
-            <div class="col-md-4" style="text-align: center;">
-                <input type="text" class="knob" value="30000" data-skin="tron" data-thickness="0.2" data-width="90" data-height="90" data-fgColor="#00a65a" data-readonly="true">
-                <div class="knob-label">data-width="90"</div>
-            </div>
-            <div class="col-md-4">2</div>
-            <div class="col-md-4">3</div>
+        <div class="row" style="padding: 15px">
+            <div class="col-md-12">
+                <div class="small-box bg-green">
+                    <div class="inner">
+                      <h3 id="proyectosTotales">--</h3>
+
+                      <p>Proyectos totales</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-pie-graph" style="font-size: 90px"></i>
+                    </div>
+
+                </div>
+
         </div>
 
 
-
-
-
-
-
-
         <div class="progress-group">
-            <span class="progress-text">Proyectos asignados a coordinadores</span>
+            <span class="progress-text">Proyectos asignados</span>
             <span class="progress-number"><b>160</b>/200</span>
 
             <div class="progress sm">

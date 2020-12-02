@@ -45,7 +45,7 @@ class HomeController extends Controller
 
         $casoTotal = Operador::select()->count();
         $casosAsignados = Operador::where('coordinador_jhcp_id',\Auth::user()->id)->count();
-        dd($casosAsignados);
+        return response()->json([$casoTotal,$casosAsignados]);
 
     }
 
