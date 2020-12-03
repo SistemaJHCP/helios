@@ -200,4 +200,16 @@ INNER JOIN imagenes ON imagenes_seguimiento.imagenes_id = imagenes.id
 INNER JOIN seguimiento ON imagenes_seguimiento.seguimiento_id = seguimiento.id
 INNER JOIN caso ON caso.id = seguimiento.caso_id
 
+---------------------------------------------------------------------
 
+CREATE OR REPLACE VIEW vw_consulta_estadistica AS
+SELECT 
+caso.id AS id,
+caso.coordinador_jhcp_id AS coordinador_jhcp_id,
+caso.operador_creador_id AS operador_creador_id,
+caso.disponibilidad AS disponibilidad,
+asignacion.caso_id AS caso_id,
+asignacion.lider_usuario_id AS lider_usuario_id,
+asignacion.coordinador_asignante_id AS coordinador_asignante_id
+FROM caso
+LEFT JOIN asignacion ON asignacion.caso_id = caso.id
