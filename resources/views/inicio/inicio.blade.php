@@ -59,19 +59,19 @@
         <!-- /.progress-group -->
         <div class="progress-group">
             <span class="progress-text">Proyectos en ejecución</span>
-            <span class="progress-number"><b>480</b>/800</span>
+            <span class="progress-number"><b id="ejecutando">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+            <div class="progress-bar progress-bar-green" id="porEjec" style="width: 0%"></div>
             </div>
         </div>
         <!-- /.progress-group -->
         <div class="progress-group">
             <span class="progress-text">Proyectos en espera de aprobacion</span>
-            <span class="progress-number"><b>250</b>/500</span>
+            <span class="progress-number"><b id="esperando">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+            <div class="progress-bar progress-bar-yellow" id="porApro" style="width: 0%"></div>
             </div>
         </div>
         <!-- /.progress-group -->
