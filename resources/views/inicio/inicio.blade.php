@@ -41,19 +41,19 @@
 
         <div class="progress-group">
             <span class="progress-text">Proyectos asignados</span>
-            <span class="progress-number"><b>160</b>/200</span>
+            <span class="progress-number"><b id="asignado">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-aqua" style="width: 90%"></div>
+            <div class="progress-bar progress-bar-aqua" id="porAsig" style="width: 0%"></div>
             </div>
         </div>
         <!-- /.progress-group -->
         <div class="progress-group">
             <span class="progress-text">Proyectos cancelados</span>
-            <span class="progress-number"><b>310</b>/400</span>
+            <span class="progress-number"><b id="cancelado">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-red" style="width: 80%"></div>
+            <div class="progress-bar progress-bar-red" id="porCan" style="width: 0%"></div>
             </div>
         </div>
         <!-- /.progress-group -->
