@@ -17,9 +17,9 @@
 @section('body')
 <div class="col-md-4">
     <div style="background: white; padding:15px;">
-        <p class="text-center">
+        {{-- <p class="text-center">
             <strong>Estado de los proyectos</strong>
-        </p>
+        </p> --}}
 
 
         <div class="row" style="padding: 15px">
@@ -35,8 +35,9 @@
                     </div>
 
                 </div>
-
+            </div>
         </div>
+
 
 
         <div class="progress-group">
@@ -44,45 +45,50 @@
             <span class="progress-number"><b id="asignado">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-aqua" id="porAsig" style="width: 0%"></div>
+            <div class="progress-bar progress-bar-green" id="porAsig" style="width: 0%"></div>
             </div>
         </div>
-        <!-- /.progress-group -->
-        <div class="progress-group">
-            <span class="progress-text">Proyectos cancelados</span>
-            <span class="progress-number"><b id="cancelado">-- / --</b></span>
 
-            <div class="progress sm">
-            <div class="progress-bar progress-bar-red" id="porCan" style="width: 0%"></div>
-            </div>
-        </div>
-        <!-- /.progress-group -->
-        <div class="progress-group">
-            <span class="progress-text">Proyectos en ejecución</span>
-            <span class="progress-number"><b id="ejecutando">-- / --</b></span>
-
-            <div class="progress sm">
-            <div class="progress-bar progress-bar-green" id="porEjec" style="width: 0%"></div>
-            </div>
-        </div>
         <!-- /.progress-group -->
         <div class="progress-group">
             <span class="progress-text">Proyectos en espera de aprobacion</span>
             <span class="progress-number"><b id="esperando">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-yellow" id="porApro" style="width: 0%"></div>
+            <div class="progress-bar progress-bar-yellow" id="porApro" style="width: 0%;"></div>
             </div>
         </div>
+
         <!-- /.progress-group -->
         <div class="progress-group">
-            <span class="progress-text">Proyectos finalizados</span>
-            <span class="progress-number"><b>250</b>/500</span>
+            <span class="progress-text">Proyectos en ejecución</span>
+            <span class="progress-number"><b id="ejecutando">-- / --</b></span>
 
             <div class="progress sm">
-            <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+            <div class="progress-bar progress-bar-green" id="porEjec" style="width: 0%; background-color:#605ca8;"></div>
             </div>
         </div>
+
+        <!-- /.progress-group -->
+        <div class="progress-group">
+            <span class="progress-text">Proyectos culminados</span>
+            <span class="progress-number"><b id="culminados">-- / --</b></span>
+
+            <div class="progress sm">
+            <div class="progress-bar progress-bar-605ca8" id="porCulm" style="width: 0%;background-color:#001f3f"></div>
+            </div>
+        </div>
+
+        <!-- /.progress-group -->
+        <div class="progress-group">
+            <span class="progress-text">Proyectos cancelados</span>
+            <span class="progress-number"><b id="cancelado">-- / --</b></span>
+
+            <div class="progress sm">
+            <div class="progress-bar progress-bar-red" id="porCan" style="width: 0%; background-color:#f56954;"></div>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="col-md-8">

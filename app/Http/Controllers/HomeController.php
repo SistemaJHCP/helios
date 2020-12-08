@@ -61,9 +61,12 @@ class HomeController extends Controller
         // Casos en espera de aprobacion
         $esperando =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'esperando aprobación')->count();
         // Porcentaje de casos cancelados en el sistema
-        $porApro = ($cancelado * 100) / $casoTotal;
+        $porApro = ($esperando * 100) / $casoTotal;
+        $culminados =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'esperando aprobación')->count();
+        // Porcentaje de casos cancelados en el sistema
+        $porCulm = ($esperando * 100) / $casoTotal;
 
-        return response()->json([$casoTotal, $asignado, number_format($porAsig, 2, '.', ''), $cancelado, number_format($porCan, 2, '.', ''), $ejecutando, number_format($porEjec, 2, '.', ''), $esperando, number_format($porApro, 2, '.', '')]);
+        return response()->json([$casoTotal, $asignado, number_format($porAsig, 2, '.', ''), $cancelado, number_format($porCan, 2, '.', ''), $ejecutando, number_format($porEjec, 2, '.', ''), $esperando, number_format($porApro, 2, '.', ''), $culminados, number_format($porCulm, 2, '.', '')]);
 
     }
 
