@@ -12,6 +12,6 @@ class operadorSeeder extends Seeder
      */
     public function run()
     {
-        factory(Operador::class, 124)->create();
+        factory(Operador::class, 50)->create();
     }
 }

@@ -419,7 +419,6 @@ class asignacionController extends Controller
 
     public function enEjecucion()
     {
-
          return datatables()
         ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible'])->orWhere('disponibilidad', ['asignado'])->orderBy('correctivo', 'DESC'))
         ->addColumn('btn','asignacion.btn')
@@ -459,11 +458,17 @@ class asignacionController extends Controller
     public function jq_ejecutandoCoord()
     {
 
-        return datatables()
-        ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible','asignado'])->orderBy('correctivo', 'DESC'))
-        ->addColumn('btn','asignacion.btn')
-        ->rawColumns(['btn'])
-        ->toJson();
+        $query = Operador::query();
+
+        return datatables()->of($query)
+        ->addColumn('btn','asignacion.btnImagenesLista2')
+        ->rawColumns(['btn'])->toJson();
+
+        // return datatables()
+        // ->eloquent(Operador::query()->where("coordinador_jhcp_id", \Auth::user()->id)->where('disponibilidad', ['disponible','asignado'])->orderBy('correctivo', 'DESC'))
+        // ->addColumn('btn','asignacion.btn')
+        // ->rawColumns(['btn'])
+        // ->toJson();
 
     }
 

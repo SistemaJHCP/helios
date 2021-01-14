@@ -485,7 +485,7 @@ class operadorController extends Controller
         }
 
         return datatables()
-        ->eloquent(Operador::query())
+        ->eloquent(Operador::query()->where('operador_creador_id', \Auth::user()->id))
         ->addColumn('btn','operador.botonIndex')
         ->rawColumns(['btn'])
         ->toJson();

@@ -99,7 +99,7 @@
                     <div class="description-block border-right">
                       <span class="description-percentage text-green">Casos asignados</span>
                       <h5 class="description-header"><b id="asignado2">--</b></h5>
-                      <span class="description-text"><i class="fa fa-folder-o" style="font-size: 30px; margin-top:10px;"></i></span>
+                      <span class="description-text"><i class="fa fa-folder" style="font-size: 30px; margin-top:10px;"></i></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -108,7 +108,7 @@
                     <div class="description-block border-right">
                       <span class="description-percentage text-yellow">Esperando aprobación</span>
                       <h5 class="description-header"><b id="esperando2">--</b></h5>
-                      <span class="description-text"><i class="fa fa-folder-o" style="font-size: 30px; margin-top:10px;"></i></span>
+                      <span class="description-text"><i class="fa fa-clock-o" style="font-size: 30px; margin-top:10px;"></i></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -126,7 +126,7 @@
                     <div class="description-block">
                       <span class="description-percentage text-red">Cancelados</span>
                       <h5 class="description-header"><b id="cancelado2">--</b></h5>
-                      <span class="description-text"><i class="fa fa-folder-o" style="font-size: 30px; margin-top:10px;"></i></span>
+                      <span class="description-text"><i class="fa fa-close" style="font-size: 30px; margin-top:10px;"></i></span>
                     </div>
                     <!-- /.description-block -->
                   </div>

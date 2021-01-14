@@ -41,9 +41,7 @@
         </div>
     </div>
     <div class="col-lg-5 col-md-5 connectedSortable">
-        <div class="nav-tabs-custom" style="margin-left:15px;margin-right:18px;padding:18px;">
-            uno
-        </div>
+        <img src="{{ url('imagenes/sistemas/columna_asig.jpg') }}" alt="">
     </div>
 
 </div>
