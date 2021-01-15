@@ -24,7 +24,7 @@
 
         <div class="nav-tabs-custom" style="margin-left:15px;margin-right:18px;padding:18px;">
                 <a href="{{ route('asignacion.index') }}"><button class="btn btn-primary">Regresar</button></a>
-            <table id="example" class="table table-condensed table-striped table-bordered" id="table" style="width:100%">
+            <table id="coord" class="table table-condensed table-striped table-bordered" id="table" style="width:100%">
                 <thead>
                     <tr>
                         <th style="text-align: center;">Correctivo</th>

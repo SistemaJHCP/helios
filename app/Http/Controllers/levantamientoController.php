@@ -189,9 +189,9 @@ class levantamientoController extends Controller
 
     public function cargaImagenes(Request $request, $id){
 
-        $request->validate([
-            'file' => 'image|max:10000'
-        ]);
+        // $request->validate([
+        //     'file' => 'image|max:10000'
+        // ]);
 
         $image = $request->file('file');
 
@@ -350,8 +350,6 @@ class levantamientoController extends Controller
         $seg->fotografo = \Auth::user()->id;
 
         $val = $seg->save();
-
-
 
         if($val){
             $datos = Operador::find($id);
