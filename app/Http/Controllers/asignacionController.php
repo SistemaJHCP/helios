@@ -36,14 +36,14 @@ class asignacionController extends Controller
         }
 
         if($u->operador == 1){
-            $asig =  DB::table('vw_asignacion_index')->get();
+            $asig =  DB::table('vw_asignacion_index')->limit(10)->get();
             $total = Operador::select()->count();
-            $mios = Operador::select()->where('disponibilidad', 'evaluando')->orWhere('disponibilidad', 'esperando aprobación')->orWhere('disponibilidad', 'en espera del cliente')->count();
+            $mios = Operador::select()->where('disponibilidad', 'esperando aprobación')->orWhere('disponibilidad', 'en espera del cliente')->count();
             $ejecucion = Operador::select()->where('disponibilidad', 'ejecutando')->count();
             $cancelado = Operador::select()->where('disponibilidad', 'cancelado')->count();
             $culminadoLider = Operador::select()->where('disponibilidad', 'cerrado por lider')->orWhere('disponibilidad', 'cerrado por coord')->count();
         } else {
-            $asig =  DB::table('vw_asignacion_index')->where('coordinador_jhcp_id', \Auth::user()->id)->get();
+            $asig =  DB::table('vw_asignacion_index')->where('coordinador_jhcp_id', \Auth::user()->id)->limit(10)->get();
             $total = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->count();
             $mios = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'evaluando')->orWhere('disponibilidad', 'esperando aprobación')->orWhere('disponibilidad', 'en espera del cliente')->count();
             $ejecucion = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'ejecutando')->count();
@@ -51,6 +51,8 @@ class asignacionController extends Controller
             $culminadoLider = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'cerrado por lider')->orWhere('disponibilidad', 'cerrado por coord')->count();
         }
 
+        $sql = Operador::select()->where('coordinador_jhcp_id', \Auth::user()->id)->where('disponibilidad', 'ejecutando')->toSql();
+        dump($mios);
         return view('asignacion.index')->with('asig', $asig)->with('total',$total)->with('en_espera', $mios)->with('enEjecucion', $ejecucion)->with('cancelado', $cancelado)->with('culLid', $culminadoLider);
     }
 

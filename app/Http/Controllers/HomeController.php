@@ -47,22 +47,22 @@ class HomeController extends Controller
         // Todos los casos que tiene el sistema
         $casoTotal = Operador::select()->count();
         // Los casos asignados al usuario activo
-        $asignado =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'asignado')->where('lider_usuario_id',\Auth::user()->id)->orWhere('coordinador_asignante_id', \Auth::user()->id)->count();
+        $asignado =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'asignado')->where('lider_usuario_id',\Auth::user()->id)->orWhere('coordinador_jhcp_id', \Auth::user()->id)->count();
         // Calcular el porcentaje de os casos asignados
         $porAsig = ($asignado * 100) / $casoTotal;
         // Total de casos cancelados en el sistema
-        $cancelado =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'cancelado')->count();
+        $cancelado =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'cancelado')->where('lider_usuario_id',\Auth::user()->id)->orWhere('coordinador_asignante_id', \Auth::user()->id)->count();
         // Porcentaje de casos cancelados en el sistema
         $porCan = ($cancelado * 100) / $casoTotal;
         // Casos ejecutandose en estos momentos
-        $ejecutando =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'ejecutando')->count();
+        $ejecutando =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'ejecutando')->where('lider_usuario_id',\Auth::user()->id)->orWhere('coordinador_asignante_id', \Auth::user()->id)->count();
         // Porcentaje de casos en ejecucion
         $porEjec = ($ejecutando * 100) / $casoTotal;
         // Casos en espera de aprobacion
-        $esperando =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'esperando aprobación')->count();
+        $esperando =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'esperando aprobación')->where('lider_usuario_id',\Auth::user()->id)->orWhere('coordinador_asignante_id', \Auth::user()->id)->count();
         // Porcentaje de casos cancelados en el sistema
         $porApro = ($esperando * 100) / $casoTotal;
-        $culminados =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'esperando aprobación')->count();
+        $culminados =  DB::table('vw_consulta_estadistica')->where('disponibilidad', 'esperando aprobación')->where('lider_usuario_id',\Auth::user()->id)->orWhere('coordinador_asignante_id', \Auth::user()->id)->count();
         // Porcentaje de casos cancelados en el sistema
         $porCulm = ($esperando * 100) / $casoTotal;
 
