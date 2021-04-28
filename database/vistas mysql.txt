@@ -15,7 +15,7 @@ CREATE OR REPLACE VIEW vw_permiso_lider AS
 select `users`.`id` as `id`, `users`.`name` as `name`, `users`.`lastname` as `lastname`, `permisos`.`nombre_permisos` as `nombre_permisos` from `users` inner join `permisos` on `permisos`.`id` = `users`.`permisos_id` where `users`.`estado` = "activo" and `permisos`.`cuadrilla` = "1";
 
 
-CREATE OR REPLACE VIEW vw_asignacion_index AS SELECT id, correctivo, sintoma, disponibilidad FROM caso WHERE disponibilidad = 'disponible' ORDER BY id DESC LIMIT 10
+CREATE OR REPLACE VIEW vw_asignacion_index AS SELECT id, correctivo, sintoma, disponibilidad, coordinador_jhcp_id FROM caso WHERE disponibilidad = 'disponible' ORDER BY id DESC
 
 CREATE OR REPLACE VIEW vw_levantamiento_index AS
 
